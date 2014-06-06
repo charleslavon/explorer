@@ -1,0 +1,125 @@
+<!-- 
+	@author: charles garrett
+	@description: this template defines the HTML UI for a given API
+
+	@required Data: apiName, elementID, methodsSupported (object containing a list of key/value pairs)
+	@optional Data: apiURL
+
+	@Additional Info: http://mustache.github.io/mustache.5.html
+ -->
+
+	<div class="panel-group api" id="accordion_{{elementID}}">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion_{{elementID}}" href="#collapse_{{elementID}}">
+						{{apiName}}
+					</a>
+				</h4>
+			</div>
+			<div id="collapse_{{elementID}}" class="panel-collapse collapse">
+				<div class="panel-body">
+					<form class="form-horizontal" role="form">
+
+						<div class="form-group col-md-12">
+							<div class="input-group">
+								<input class="form-control" type="url" id="url" value="{{apiURL}}" placeholder="Enter url here..."/>
+
+								<span class="input-group-btn">
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</span>
+							</div>
+						</div> 
+
+						<div class="form-group">
+							<div class="btn-group col-sm-6" data-toggle="buttons">
+								<label for="options" class="col-sm-5 control-label">Select request method:</label>
+									{{#methodsSupported}}
+										<label class="btn btn-primary">
+											<input type="radio" name="options" id="{{method}}">{{method}}
+										</label>
+									{{/methodsSupported}}
+							</div>
+
+							<div class="btn-group col-sm-6 pull-right" data-toggle="buttons">
+							
+								<!-- TODO June 6, 2014 - this should also be data driven. e.g. only offer formats supported by the API -->
+								<label for="format" class="col-sm-5 control-label"> Choose response format:</label>
+								<label class="btn btn-info">
+									<input type="radio" name="format" id="xml">XML
+								</label>
+								<label class="btn btn-info">
+									<input type="radio" name="format" id="json"> JSON
+								</label>
+							</div>
+
+						</div>
+
+					</form>
+					<!--response headers -->
+					<div class=" container-height">
+
+						<div class="well well-lg "> 
+							<dl class="dl-horizontal ">
+								<dt>Status:</dt>
+								<dd>200 <span class="glyphicon glyphicon-flash"></span>OK</dd>
+								<br>
+								<dt>Request Headers:</dt>
+								<dd><span class='js-api-requestHeaders'></span></dd>
+								<br>
+								<dt>Response Headers:</dt>
+								<dd><span class='js-api-responseHeaders'></span></dd>
+							</dl>
+						</div>
+
+					</div>
+					<!--output response -->
+					<section class=" container-height">
+
+						<header>
+							<h4> Output Data:</h4>
+						</header>
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs container-height ">
+							<li class="active"><a href="#home_{{elementID}}" data-toggle="tab">XML</a></li>
+							<li class="disabled"><a href="#profile_{{elementID}}" data-toggle="tab">JSON</a></li>
+							<li><a href="#messages_{{elementID}}" data-toggle="tab">RAW</a></li>
+							<li><button  data-toggle="tooltip" data-placement="top" title="copy to clipboard" class="closeGap btn btn-info">Add to Clipboard</button></li>
+						</ul>
+
+						<div class="tab-content">
+							<div class="tab-pane fade in active" id="home_{{elementID}}">
+								<div class="highlight">
+									<pre>
+										<code>
+											XML data
+										</code>
+									</pre>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="profile_{{elementID}}">
+								<div class="highlight">
+									<pre>
+										<code>
+											JSON data
+										</code>
+									</pre>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="messages_{{elementID}}">
+								<div class="highlight">
+									<pre>
+										<code>
+											Raw data
+										</code>
+									</pre>
+								</div>
+							</div>
+						</div>
+					</section>
+
+
+				</div>
+			</div>
+		</div>
+	</div>				

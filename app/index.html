@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Connect API Explorer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/bower_components/components-bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/components-bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- import HTML templates -->
+    <link rel="import" href="/templates/api_block.html">
+
+    <!-- 
+        platform.js to load the Polyfill for HTML import support
+
+        see http://www.polymer-project.org/platform/html-imports.html   and
+        http://www.html5rocks.com/en/tutorials/webcomponents/imports/
+    -->
+    <script src="bower_components/platform/platform.js"></script>
+
+  </head>
+  
+  <body>
+    <div class="row">
+        <div class="blog-masthead">
+          <div class="container"><p>Web API Explorer </p></div>
+        </div>
+        <div id="apiContainer" class="container container-height"></div>
+    </div>
+
+
+
+    <!--[if lt IE 9]>
+    <script src="/bower_components/es5-shim/es5-shim.js"></script>
+    <script src="/bower_components/es5-shim/es5-sham.js"></script>
+    <![endif]-->
+    
+    <!-- jquery is a requirement to support Flight.js --> 
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+
+    <!-- require.js is another requirement of Flight.js used for loading javascript modules-->
+    <script src="/bower_components/requirejs/require.js" data-main="js/main.js"></script>
+    
+    <!-- bootstrap.min.js to support bootstrap UI themes -->
+    <script src="/bower_components/components-bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- template.js and compile.js to support Mustache/Hogan templates -->
+    <script src="bower_components/hogan/lib/template.js"></script>
+    <script src="bower_components/hogan/lib/compiler.js"></script>
+
+  </body>
+</html>
